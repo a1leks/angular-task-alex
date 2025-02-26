@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { updateUser, User } from '@angular-task/users-data';
 import { RouterModule } from '@angular/router';
@@ -15,6 +15,7 @@ import { Store } from '@ngrx/store';
 export class UserItemComponent {
 
     user = input.required<User>();
+    userChange = output<User>();
 
     private store = inject(Store);
 
@@ -24,6 +25,7 @@ export class UserItemComponent {
 
         console.log('Update from item for ', this.user().id, isFavorite);
         this.store.dispatch(updateUser({ user: updated }));
+        this.userChange.emit(updated);
 
     }
 

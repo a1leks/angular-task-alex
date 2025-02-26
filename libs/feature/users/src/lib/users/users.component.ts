@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
 
     }
 
-    filterTypeChangeHandler (field: string): void {
+    filterTypeSelected (field: string): void {
 
         this.filterField = field as keyof User;
         this.filterValue = '';
@@ -37,6 +37,15 @@ export class UsersComponent implements OnInit {
     ngOnInit (): void {
 
         this.api.getUsers().pipe(take(1)).subscribe((users) => this.users.set(users));
+
+    }
+
+    userChangeHandler (user: User): void {
+
+        // Update users in this.users() if it was changed in an item.
+        // Using store.select is an option here, but now I have only changed users in the store.
+        // Just highlighting that I see the options.
+        this.users.set(this.users().map((u) => u.id === user.id ? user : u));
 
     }
 

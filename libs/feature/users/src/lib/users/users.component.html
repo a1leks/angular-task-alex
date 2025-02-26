@@ -10,7 +10,7 @@
         />
 
         <lib-select
-            (selectChange)="filterTypeChangeHandler($event)"
+            (selectChange)="filterTypeSelected($event)"
             [default]="filterField"
             [label]="'Filter field'"
             [options]="['name', 'email', 'username']"
@@ -20,7 +20,7 @@
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         @for (user of filteredUsers(); track user.id) {
             <li>
-                <lib-user-item [user]="user" />
+                <lib-user-item (userChange)="userChangeHandler($event)" [user]="user" />
             </li>
         }
     </ul>

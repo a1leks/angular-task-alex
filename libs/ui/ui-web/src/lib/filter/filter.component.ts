@@ -1,4 +1,4 @@
-import { Component, input, OnChanges, OnDestroy, OnInit, output } from '@angular/core';
+import { Component, input, OnChanges, OnDestroy, OnInit, output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { debounceTime, Subject } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class FilterComponent<T> implements OnInit, OnDestroy, OnChanges {
 
     items = input.required<T[]>();
-    key = input.required<keyof T>();
+    key = input.required<keyof T>(); // Key of an item in this.items used for filtering
     placeholder = input<string>('Type to filter');
     filterValue = input<string>('');
 
@@ -51,10 +51,14 @@ export class FilterComponent<T> implements OnInit, OnDestroy, OnChanges {
 
     }
 
-    ngOnChanges (): void {
+    ngOnChanges (changes: SimpleChanges): void {
 
-        this.search = this.filterValue();
-        this.debounceFilter$.next(this.filterValue());
+        if (changes['key']) {
+
+            this.search = this.filterValue();
+            this.debounceFilter$.next(this.filterValue());
+
+        }
 
     }
 

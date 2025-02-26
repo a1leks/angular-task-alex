@@ -1,0 +1,17 @@
+@let u = user();
+
+<mat-card [routerLink]="['/users', u.id]" class="user-item p-3 transition-transform hover:scale-102">
+    <header class="flex flex-col">
+        <h4>
+            <p>{{ u.name }}</p>
+            <lib-favorite (changeFavorite)="changeFavoriteHandler($event)" [isFavorite]="!!u.isFavorite" />
+        </h4>
+        <p class="username text-gray-500 text-sm">{{ u.username }}</p>
+    </header>
+
+    <section class="body">
+        <p>City: {{ u.address.city }}</p>
+        <p>Email: {{ u.email }}</p>
+        <p>Phone: {{ u.phone }}</p>
+    </section>
+</mat-card>

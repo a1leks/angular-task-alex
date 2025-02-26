@@ -1,0 +1,10 @@
+<button
+    (click)="toggleFavorite($event)"
+    [matTooltip]="favoriteSignal() ? 'Remove from Favorites' : 'Add to Favorites'"
+    class="favorite-btn text-yellow-500"
+    mat-icon-button
+>
+    <mat-icon
+        ><span class="favorite-icon">{{ favoriteSignal() ? 'star' : 'star_border' }}</span></mat-icon
+    >
+</button>

@@ -10,6 +10,8 @@ import { appRoutes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideStore } from '@ngrx/store';
+import { UsersApiService, usersReducer } from '@angular-task/users-data';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -30,5 +32,7 @@ export const appConfig: ApplicationConfig = {
             })
         ),
         provideAnimationsAsync(),
+        provideStore({ users: usersReducer }),
+        UsersApiService,
     ],
 };

@@ -1,0 +1,65 @@
+@let u = user();
+@let isLoading = loading();
+
+<mat-card class="user-profile p-3 my-3">
+    @if (u) {
+        <mat-card-header class="w-full justify-between">
+            <mat-card-title class="flex">
+                <div class="left flex">
+                    <img alt="User Avatar" class="avatar" src="./avatar.webp" />
+                    <div class="p-4">
+                        <p>{{ u!.name }}</p>
+                        <p class="text-gray-500 text-sm">
+                            {{ u!.username }} | id: <span class="user-id">{{ u!.id }}</span>
+                        </p>
+                    </div>
+                </div>
+            </mat-card-title>
+            <div class="right">
+                <lib-favorite (changeFavorite)="changeFavoriteHandler($event)" [isFavorite]="!!u!.isFavorite" />
+            </div>
+        </mat-card-header>
+
+        <mat-card-content class="my-3">
+            <section class="my-3">
+                <h3 class="my-3">Contacts</h3>
+                <p><strong>Email:</strong> {{ u!.email }}</p>
+                <p><strong>Phone:</strong> {{ u!.phone }}</p>
+                <p>
+                    <strong>Website:</strong>&nbsp;<a [href]="'https://' + u!.website" class="text-gray-600 hover:text-blue-600" target="_blank">{{
+                        u!.website
+                    }}</a>
+                </p>
+            </section>
+
+            <mat-divider />
+
+            <section class="my-3">
+                <h3 class="my-3">Address</h3>
+                <p><strong>Street:</strong> {{ u!.address.street }}</p>
+                <p><strong>Suite:</strong> {{ u!.address.suite }}</p>
+                <p><strong>City:</strong> {{ u!.address.city }}</p>
+                <p><strong>Zipcode:</strong> {{ u!.address.zipcode }}</p>
+                <p><strong>Geo lat:</strong> {{ u!.address.geo.lat }}</p>
+                <p><strong>Geo lng:</strong> {{ u!.address.geo.lng }}</p>
+            </section>
+
+            <mat-divider />
+
+            <section class="my-3">
+                <h3 class="my-3">Company</h3>
+                <p><strong>Name:</strong> {{ u!.company.name }}</p>
+                <p><strong>Catchphrase:</strong> {{ u!.company.catchPhrase }}</p>
+                <p><strong>Business:</strong> {{ u!.company.bs }}</p>
+            </section>
+        </mat-card-content>
+    } @else {
+        <header class="m-auto">
+            @if (isLoading) {
+                <mat-progress-spinner [color]="'green'" mode="indeterminate" />
+            } @else {
+                <section class="flex">User is not found!</section>
+            }
+        </header>
+    }
+</mat-card>

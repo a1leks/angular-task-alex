@@ -1,0 +1,10 @@
+<mat-form-field class="w-full">
+    <mat-label>{{ label() }}</mat-label>
+    <mat-select (selectionChange)="onSelectChange($event.value)" [(value)]="selected">
+        @for (option of options(); track option) {
+            <mat-option [value]="option">
+                {{ option }}
+            </mat-option>
+        }
+    </mat-select>
+</mat-form-field>

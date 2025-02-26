@@ -1,0 +1,27 @@
+<div class="my-4">
+    <div class="flex flex-col w-full items-center md:gap-4 md:flex-row">
+        <lib-filter
+            (filter)="filterHandler($event)"
+            [filterValue]="filterValue"
+            [items]="users()"
+            [key]="filterField"
+            [placeholder]="'Type to filter by name'"
+            class="w-full md:flex-grow"
+        />
+
+        <lib-select
+            (selectChange)="filterTypeChangeHandler($event)"
+            [default]="filterField"
+            [label]="'Filter field'"
+            [options]="['name', 'email', 'username']"
+            class="w-full md:w-[200px]"
+        />
+    </div>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        @for (user of filteredUsers(); track user.id) {
+            <li>
+                <lib-user-item [user]="user" />
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,4 @@
+<mat-form-field class="w-full">
+    <mat-label>Filter</mat-label>
+    <input (input)="filterInputHandler($event)" [(ngModel)]="search" [attr.maxlength]="maxValueLength" [placeholder]="placeholder()" matInput />
+</mat-form-field>

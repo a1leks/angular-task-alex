@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ContentWrapperComponent, NavbarComponent } from '@angular-task/ui-web';
 
 @Component({
-    host: {
-        class: 'block p-4'
-    },
-    imports: [RouterModule],
+    imports: [RouterModule, ContentWrapperComponent, NavbarComponent],
     selector: 'crx-root',
     templateUrl: './app.component.html',
 })

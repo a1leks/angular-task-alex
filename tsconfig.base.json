@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-task/ui-web": ["libs/ui/ui-web/src/index.ts"],
+      "@angular-task/user-profile": ["libs/feature/user-profile/src/index.ts"],
+      "@angular-task/users": ["libs/feature/users/src/index.ts"],
+      "@angular-task/users-data": ["libs/data-access/user/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

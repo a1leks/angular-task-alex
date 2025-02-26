@@ -2,11 +2,10 @@ import { Component, input, OnInit, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatIconButton } from '@angular/material/button';
 
 @Component({
     selector: 'lib-favorite',
-    imports: [CommonModule, MatIconModule, MatTooltipModule, MatIconButton],
+    imports: [CommonModule, MatIconModule, MatTooltipModule],
     templateUrl: './favorite.component.html',
     styleUrl: './favorite.component.css',
 })

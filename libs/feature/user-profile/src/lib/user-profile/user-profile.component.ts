@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { updateUser, User, UsersApiService } from '@angular-task/users-data';
 import { ActivatedRoute } from '@angular/router';
@@ -20,6 +20,7 @@ import { Store } from '@ngrx/store';
     ],
     templateUrl: './user-profile.component.html',
     styleUrl: './user-profile.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserProfileComponent implements OnInit {
 

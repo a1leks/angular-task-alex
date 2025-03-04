@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
@@ -16,5 +16,6 @@ import { MatCardModule } from '@angular/material/card';
     ],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent { }

@@ -1,4 +1,4 @@
-import { Component, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { updateUser, User } from '@angular-task/users-data';
 import { RouterModule } from '@angular/router';
@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
     imports: [CommonModule, RouterModule, MatCardModule, FavoriteComponent],
     templateUrl: './user-item.component.html',
     styleUrl: './user-item.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserItemComponent {
 

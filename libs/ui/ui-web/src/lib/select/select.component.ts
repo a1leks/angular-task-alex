@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
     imports: [CommonModule, MatFormFieldModule, MatSelectModule, FormsModule],
     templateUrl: './select.component.html',
     styleUrl: './select.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent implements OnInit {
 

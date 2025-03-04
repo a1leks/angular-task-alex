@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -8,6 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     imports: [CommonModule, MatIconModule, MatTooltipModule],
     templateUrl: './favorite.component.html',
     styleUrl: './favorite.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavoriteComponent implements OnInit {
 

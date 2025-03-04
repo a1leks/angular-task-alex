@@ -1,4 +1,13 @@
-import { Component, input, OnChanges, OnDestroy, OnInit, output, SimpleChanges } from '@angular/core';
+import {
+    Component,
+    ChangeDetectionStrategy,
+    input,
+    OnChanges,
+    OnDestroy,
+    OnInit,
+    output,
+    SimpleChanges
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { debounceTime, Subject } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     imports: [CommonModule, MatFormFieldModule, MatInputModule, FormsModule],
     templateUrl: './filter.component.html',
     styleUrl: './filter.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent<T> implements OnInit, OnDestroy, OnChanges {
 

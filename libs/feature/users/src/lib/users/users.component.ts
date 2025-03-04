@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User, UsersApiService } from '@angular-task/users-data';
 import { take } from 'rxjs';
@@ -10,6 +10,7 @@ import { UserItemComponent } from '../user-item/user-item.component';
     imports: [CommonModule, FilterComponent, SelectComponent, UserItemComponent],
     templateUrl: './users.component.html',
     styleUrl: './users.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersComponent implements OnInit {
 
